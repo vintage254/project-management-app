@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProjectResource;
+use App\Http\Resources\TaskResource;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
@@ -17,6 +19,9 @@ class ProjectController extends Controller
     {
         $query = Project::query();
 
+        $sortField = request("sort_field", 'created_at');
+        $sortDirection = request("sort_direction", "desc");
+
         if (request("name")){
             $query->where("name","like","%". request("name"). "%");
         }
@@ -24,7 +29,8 @@ class ProjectController extends Controller
         if (request("status")) {
             $query->where("status", request("status"));
         }
-        $projects = $query->pagination(10)->onEachSide(1);
+        $projects = $query->orderBy($sortField, $sortDirection)
+        ->pagination(10)->onEachSide(1);
         
         return inertia("Project/Index", [
             "projects" => ProjectResource::collection($projects),
@@ -61,16 +67,35 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
-    }
+        $query = $project->tasks();
+        
+        $sortField = request("sort_field", 'created_at');
+        $sortDirection = request("sort_direction", "desc");
 
+        if (request("name")){
+            $query->where("name","like","%". request("name"). "%");
+        }
+
+        if (request("status")) {
+            $query->where("status", request("status"));
+
+        }
+        
+        $tasks = $query->orderBy($sortField, $sortDirection)
+        ->pagination(10)->onEachSide(1);
+        return inertia('Project/Show', [
+            'project' => new ProjectResource($project),
+            "tasks" => TaskResource::collection($task),
+            "queryParams" => request()->query() ?: null,
+        ]);
+    }
+    
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    
+    
+     public function edit(Project $project)
     {
         //
     }
