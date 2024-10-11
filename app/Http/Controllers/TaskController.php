@@ -29,7 +29,7 @@ class TaskController extends Controller
             $query->where("status", request("status"));
         }
         $task = $query->orderBy($sortField, $sortDirection)
-        ->pagination(10)->onEachSide(1);
+        ->paginate(10)->onEachSide(1);
         
         return inertia("Task/Index", [
             "tasks" => TaskResource::collection($task),
