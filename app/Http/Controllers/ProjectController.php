@@ -23,17 +23,14 @@ class ProjectController extends Controller
         $sortField = request("sort_field", 'created_at');
         $sortDirection = request("sort_direction", "desc");
 
-        if (request("name")) {
-            $query->where("name", "like", "%" . request("name") . "%");
+        if (request("name")){
+            $query->where("name","like","%". request("name"). "%");
         }
         if (request("status")) {
             $query->where("status", request("status"));
         }
-
         $projects = $query->orderBy($sortField, $sortDirection)
-            ->paginate(10)
-            ->onEachSide(1);
-
+        ->paginate(10)->onEachSide(1);        
         return inertia("Project/Index", [
             "projects" => ProjectResource::collection($projects),
             'queryParams' => request()->query() ?: null,
@@ -74,32 +71,34 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $query = $project->tasks();
-
+        
         $sortField = request("sort_field", 'created_at');
         $sortDirection = request("sort_direction", "desc");
 
-        if (request("name")) {
-            $query->where("name", "like", "%" . request("name") . "%");
+        if (request("name")){
+            $query->where("name","like","%". request("name"). "%");
         }
+
         if (request("status")) {
             $query->where("status", request("status"));
-        }
 
+        }
+        
         $tasks = $query->orderBy($sortField, $sortDirection)
-            ->paginate(10)
-            ->onEachSide(1);
+        ->pagination(10)->onEachSide(1);
         return inertia('Project/Show', [
             'project' => new ProjectResource($project),
-            "tasks" => TaskResource::collection($tasks),
-            'queryParams' => request()->query() ?: null,
-            'success' => session('success'),
+            "tasks" => TaskResource::collection($task),
+            "queryParams" => request()->query() ?: null,
         ]);
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    
+    
+     public function edit(Project $project)
     {
         return inertia('Project/Edit', [
             'project' => new ProjectResource($project),
