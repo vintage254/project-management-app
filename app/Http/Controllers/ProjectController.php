@@ -11,12 +11,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\str;
 
+
 class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -28,7 +27,6 @@ class ProjectController extends Controller
         if (request("name")){
             $query->where("name","like","%". request("name"). "%");
         }
-
         if (request("status")) {
             $query->where("status", request("status"));
         }
@@ -43,8 +41,6 @@ class ProjectController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -72,7 +68,6 @@ class ProjectController extends Controller
 
     /**
      * Display the specified resource.
-     *
      */
     public function show(Project $project)
     {
@@ -113,10 +108,6 @@ class ProjectController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateProjectRequest  $request
-     * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
