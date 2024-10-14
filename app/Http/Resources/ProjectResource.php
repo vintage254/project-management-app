@@ -5,6 +5,8 @@ namespace App\Http\Resources;
 use Carbon\Carbon;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectResource extends JsonResource
 {
