@@ -9,7 +9,8 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use Illuminate\Support\str;
+
 
 class ProjectController extends Controller
 {
@@ -33,8 +34,8 @@ class ProjectController extends Controller
         ->paginate(10)->onEachSide(1);        
         return inertia("Project/Index", [
             "projects" => ProjectResource::collection($projects),
-            'queryParams' => request()->query() ?: null,
-            'success' => session('success'),
+            "queryParams" => request()->query() ?: null,
+            "success" => session('success',)
         ]);
     }
 
@@ -85,7 +86,7 @@ class ProjectController extends Controller
         }
         
         $tasks = $query->orderBy($sortField, $sortDirection)
-        ->pagination(10)->onEachSide(1);
+        ->paginate(10)->onEachSide(1);
         return inertia('Project/Show', [
             'project' => new ProjectResource($project),
             "tasks" => TaskResource::collection($task),
