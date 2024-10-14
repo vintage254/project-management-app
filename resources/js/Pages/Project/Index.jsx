@@ -4,6 +4,7 @@ import { Head, Link } from "@inertiajs/react";
 
 
 export default function Index({ auth, projects }) {
+  
     return (
         <AuthenticatedLayout 
             user={auth.user}
