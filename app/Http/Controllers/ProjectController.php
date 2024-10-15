@@ -35,7 +35,7 @@ class ProjectController extends Controller
         return inertia("Project/Index", [
             "projects" => ProjectResource::collection($projects),
             "queryParams" => request()->query() ?: null,
-            "success" => session('success',)
+            "success" => session('success'),
         ]);
     }
 
@@ -53,7 +53,7 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $data = $request->validated();
-        /** @var $image \Illuminate\Http\UploadedFile */
+        /** @var \Illuminate\Http\UploadedFile |null $image  */
         $image = $data['image'] ?? null;
         $data['created_by'] = Auth::id();
         $data['updated_by'] = Auth::id();
@@ -89,8 +89,9 @@ class ProjectController extends Controller
         ->paginate(10)->onEachSide(1);
         return inertia('Project/Show', [
             'project' => new ProjectResource($project),
-            "tasks" => TaskResource::collection($task),
+            "tasks" => TaskResource::collection($tasks),
             "queryParams" => request()->query() ?: null,
+            "success" => session('success'),
         ]);
     }
     

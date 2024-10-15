@@ -12,10 +12,11 @@ use Inertia\Inertia;
 Route::redirect('/', '/dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', fn()=> Inertia::render('Dashboard'))
+    Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
 
     Route::resource('project', ProjectController::class);
+    Route::get('/task/my-tasks', 'App\Http\Controllers\TaskController@myTasks')->name('task.myTasks');
     Route::resource('task', TaskController::class);
     Route::resource('user', UserController::class);
 });
