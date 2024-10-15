@@ -17,6 +17,7 @@ export default function Index({ auth, projects, queryParams = null, success }) {
     } else {
       delete queryParams[name];
     }
+
     router.get(route("project.index"), queryParams);
   };
 
@@ -217,7 +218,6 @@ export default function Index({ auth, projects, queryParams = null, success }) {
             </div>
           </div>
         </div>
-        
       </div>
     </AuthenticatedLayout>
   );
