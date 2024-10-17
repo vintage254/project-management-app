@@ -72,7 +72,7 @@ Before you begin, ensure you have the following installed:
 1. **Clone the Repository:**
     Open your terminal and run:
     ```bash
-    git clone [https://github.com/vintage254/project-management-app.git]
+    git clone https://github.com/vintage254/project-management-app.git
     cd project-management-app
     ```
 
