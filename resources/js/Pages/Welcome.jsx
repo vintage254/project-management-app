@@ -1,297 +1,227 @@
 import { Link, Head } from '@inertiajs/react';
 
 export default function Welcome(props) {
-    return (
-        <>
-            <Head title="Welcome" />
-            <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-                <div className="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-                    {props.auth.user ? (
-                        <Link
-                            href={route('dashboard')}
-                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        >
-                            Dashboard
-                        </Link>
-                    ) : (
-                        <>
-                            <Link
-                                href={route('login')}
-                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            >
-                                Log in
-                            </Link>
+  return (
+    <>
+      <Head title="Welcome" />
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <header className="bg-white dark:bg-gray-800 shadow">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              {/* Logo Section */}
+              <div className="flex">
+                <svg
+                  viewBox="0 0 380 100"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-16 w-auto"
+                >
+                  <rect x="10" y="30" width="20" height="40" fill="#00CED1" />
+                  <rect x="35" y="30" width="20" height="40" fill="#8A2BE2" />
+                  <rect x="60" y="30" width="20" height="40" fill="#FF69B4" />
+                  <text
+                    x="95"
+                    y="82"
+                    fontFamily="Arial, sans-serif"
+                    fontSize="40"
+                    fontWeight="bold"
+                    fill="#FFFFFF"
+                  >
+                    Syncraft Space
+                  </text>
+                </svg>
+              </div>
 
-                            <Link
-                                href={route('register')}
-                                className="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            >
-                                Register
-                            </Link>
-                        </>
-                    )}
-                </div>
+              {/* Navigation Links */}
+              <nav className="hidden sm:flex space-x-4">
+                <Link
+                  href={route("dashboard")}
+                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  href={route("login")}
+                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200"
+                >
+                  Log in
+                </Link>
+                <Link
+                  href={route("register")}
+                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200"
+                >
+                  Register
+                </Link>
+              </nav>
 
-                <div className="max-w-7xl mx-auto p-6 lg:p-8">
-                    <div className="flex justify-center">
-                        <svg {...props} viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
-                            {/* Logo symbol */}
-                            <rect x="10" y="30" width="20" height="40" fill="#00CED1" />
-                            <rect x="35" y="30" width="20" height="40" fill="#8A2BE2" />
-                            <rect x="60" y="30" width="20" height="40" fill="#FF69B4" />
-                            
-                            {/* Text */}
-                            <text x="95" y="62" fontFamily="Arial, sans-serif" fontSize="30" fontWeight="bold" fill="#FFFFFF">SyncraftSpace</text>
-                        </svg>
-                    </div>
-
-                    <div className="mt-16">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                            <a
-                                href="https://github.com/vintage254/project-management-app"
-                                className="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500"
-                            >
-                                <div>
-                                    <div className="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
-                                            className="w-7 h-7 stroke-red-500"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
-                                            />
-                                        </svg>
-                                    </div>
-
-                                    <h2 className="mt-6 text-xl font-semibold text-gray-900 dark:text-white">
-                                        About us
-                                    </h2>
-
-                                    <p className="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                        Synccraft is an innovative project management app developed by Tracy Sambu and Derrick Njuguna
-                                        to streamline workflow and enhance team collaboration. With its intuitive interface and robust features,
-                                        Synccraft empowers teams to efficiently plan, track, and deliver projects.
-                                        Our platform simplifies project execution, allowing you to focus on what truly matters—achieving your goals.
-                                        Let Synccraft be your partner in crafting success, one project at a time
-                                    </p>
-                                </div>
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    className="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                                    />
-                                </svg>
-                            </a>
-
-                            <a
-                                href="https://laracasts.com"
-                                className="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500"
-                            >
-                                <div>
-                                    <div className="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
-                                            className="w-7 h-7 stroke-red-500"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
-                                            />
-                                        </svg>
-                                    </div>
-
-                                    <h2 className="mt-6 text-xl font-semibold text-gray-900 dark:text-white">
-                                        Features
-                                    </h2>
-
-                                    <p className="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                        Synccraft features dedicated tabs for projects, tasks,
-                                        and users to enhance team collaboration.
-                                        The Projects tab allows users to manage ongoing initiatives,
-                                        while the Tasks tab breaks down projects into actionable steps for easy assignment and tracking.
-                                        The My Tasks tab offers a personalized view for individual users,
-                                        helping them stay organized and focused on their responsibilities.
-                                        These features streamline project management and boost productivity.
-                                    </p>
-                                </div>
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    className="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                                    />
-                                </svg>
-                            </a>
-
-                            <a
-                                href="https://github.com/vintage254"
-                                className="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500"
-                            >
-                                <div>
-                                    <div className="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
-                                            className="w-7 h-7 stroke-red-500"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"
-                                            />
-                                        </svg>
-                                    </div>
-
-                                    <h2 className="mt-6 text-xl font-semibold text-gray-900 dark:text-white">
-                                        Derrick njuguna links
-                                    </h2>
-
-                                    <p className="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    <a
-                                            href="https://www.linkedin.com/in/derrick-njuguna/"
-                                            className="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                        >
-                                            linkedlin
-                                        </a>
-                                        ,{' '}
-                                        <a
-                                            href="https://x.com/DNMungai2"
-                                            className="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                        >
-                                            twitter
-                                        </a>
-                                    </p>
-                                </div>
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    className="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                                    />
-                                </svg>
-                            </a>
-                            
-                            <a
-                                href="https://github.com/sambutracy"
-                                className="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500"
-                            >
-
-                            <div className="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                                <div>
-                                    <div className="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
-                                            className="w-7 h-7 stroke-red-500"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64"
-                                            />
-                                        </svg>
-                                    </div>
-
-                                    <h2 className="mt-6 text-xl font-semibold text-gray-900 dark:text-white">
-                                        Tracy Sambu links
-                                    </h2>
-
-                                    <p className="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                
-                                        <a
-                                            href="https://www.linkedin.com/in/tracysambu/"
-                                            className="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                        >
-                                            linkedin
-                                        </a>
-                                        ,{' '}
-                                        <a
-                                            href="https://x.com/sambu_tracy"
-                                            className="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                        >
-                                                twitter
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-                                </a>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-center mt-16 px-6 sm:items-center sm:justify-between">
-                        <div className="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                            <div className="flex items-center gap-4">
-                                <a
-                                    href="https://github.com/sponsors/taylorotwell"
-                                    className="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth="1.5"
-                                        className="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                                        />
-                                    </svg>
-                                    @2024
-                                </a>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                </div>
+              {/* Mobile Menu Button */}
+              <div className="sm:hidden flex items-center">
+                <button
+                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  aria-label="Toggle navigation"
+                >
+                  <svg
+                    className="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h16m-7 6h7"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            <style>{`
-                .bg-dots-darker {
-                    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E");
-                }
-                @media (prefers-color-scheme: dark) {
-                    .dark\\:bg-dots-lighter {
-                        background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E");
-                    }
-                }
-            `}</style>
-        </>
-    );
+            {/* Mobile Navigation Links */}
+            <div className="sm:hidden mt-2 space-y-1">
+              <Link
+                href={route("dashboard")}
+                className="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 rounded-md text-base font-medium transition duration-200"
+              >
+                Dashboard
+              </Link>
+              <Link
+                href={route("login")}
+                className="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 rounded-md text-base font-medium transition duration-200"
+              >
+                Log in
+              </Link>
+              <Link
+                href={route("register")}
+                className="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 rounded-md text-base font-medium transition duration-200"
+              >
+                Register
+              </Link>
+            </div>
+          </div>
+        </header>
+
+        <main className="py-10">
+          <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
+              {/* Centered Logo */}
+              <div className="flex justify-center mb-6">
+                <svg
+                  viewBox="0 0 380 100"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-24 w-auto"
+                >
+                  <rect x="10" y="30" width="20" height="40" fill="#00CED1" />
+                  <rect x="35" y="30" width="20" height="40" fill="#8A2BE2" />
+                  <rect x="60" y="30" width="20" height="40" fill="#FF69B4" />
+                  <text
+                    x="95"
+                    y="70"
+                    fontFamily="Arial, sans-serif"
+                    fontSize="30"
+                    fontWeight="bold"
+                    fill="#FFFFFF"
+                  >
+                    Syncraft Space
+                  </text>
+                </svg>
+              </div>
+
+              {/* About Section */}
+            <section className="mb-10 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg transition duration-300 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                About Us
+            </h2>
+            <p className="mt-2 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Syncraft is an innovative project management app developed by Tracy Sambu and Derrick Njuguna to streamline workflow and enhance team collaboration.
+                With its intuitive interface and robust features, Syncraft empowers teams to efficiently plan, track, and deliver projects. Let Syncraft be your partner in crafting success.
+            </p>
+            </section>
+
+              {/* Key Features Section */}
+              <section>
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white text-center mb-4">
+                  Key Features
+                </h2>
+
+                {/* Features Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Feature: Task Management */}
+                  <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                      Task Management
+                    </h3>
+                    <p className="mt-2 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                      Organize tasks effectively by creating, assigning, and prioritizing tasks for your projects. With a user-friendly interface, Syncraft enables seamless task allocation and management across teams.
+                    </p>
+                  </div>
+
+                  {/* Feature: Project Tracking */}
+                  <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                      Project Tracking
+                    </h3>
+                    <p className="mt-2 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                      Keep track of ongoing projects with detailed progress updates, milestones, and timelines. Syncraft offers visual progress bars and status indicators for each project.
+                    </p>
+                  </div>
+
+                  {/* Feature: Collaboration Tools */}
+                  <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                      Collaboration Tools
+                    </h3>
+                    <p className="mt-2 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                      Collaborate with your team efficiently using built-in chat features, file sharing, and real-time updates. Streamline communication across projects to ensure every team member is on the same page.
+                    </p>
+                  </div>
+
+                  {/* Feature: Progress Reporting */}
+                  <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                      Progress Reporting
+                    </h3>
+                    <p className="mt-2 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                      Generate detailed reports on project progress, team performance, and task completion rates. Syncraft provides insightful analytics that help you make informed decisions and improve workflow efficiency.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </main>
+
+        {/* Footer Section */}
+        <footer className="bg-gray-800 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="flex justify-between items-center">
+              <p className="text-sm">
+                &copy; {new Date().getFullYear()} Syncraft. All rights reserved.
+              </p>
+              <div className="flex space-x-4">
+                <Link
+                  href="/privacy"
+                  className="hover:text-gray-400 transition duration-200"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  href="/terms"
+                  className="hover:text-gray-400 transition duration-200"
+                >
+                  Terms of Service
+                </Link>
+                <Link
+                  href="/contact"
+                  className="hover:text-gray-400 transition duration-200"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </>
+  );
 }
