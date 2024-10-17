@@ -38,13 +38,13 @@ export default function Welcome(props) {
         Dashboard
        </Link>
        <Link
-        href="#"
+        href={route("login")}
         className="text-gray-300 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-600 py-4 rounded-md text-sm font-medium transition duration-200"
        >
         Log in
        </Link>
        <Link
-        href="#"
+        href={route("register")}
         className="text-gray-300 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-600 px-3 py-4 rounded-md text-sm font-medium transition duration-200"
        >
         Register
