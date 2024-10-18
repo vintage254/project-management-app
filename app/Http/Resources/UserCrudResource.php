@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UsercrudResource extends JsonResource
+class UserCrudResource extends JsonResource
 {
     public static $wrap =false;
     /**
