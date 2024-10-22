@@ -1,10 +1,10 @@
-# TaskMaster Pro: Get It Done
+# synccraft-space: Get It Done
 
 ## Project Overview
 
-TaskMaster Pro is a full-stack web application for managing projects and tasks collaboratively. It's built with a powerful combination of Laravel 11 for the backend and React with Inertia.js for the frontend, providing a seamless and responsive user experience.
+synccraft-space is a full-stack web application for managing projects and tasks collaboratively. It's built with a powerful combination of Laravel 11 for the backend and React with Inertia.js for the frontend, providing a seamless and responsive user experience.
 
-### Why TaskMaster Pro?
+### Why synccraft-space?
 
 In today's fast-paced work environment, efficient project and task management is crucial. TaskMaster Pro aims to address common challenges faced by teams, such as:
 
@@ -14,7 +14,7 @@ In today's fast-paced work environment, efficient project and task management is
 
 ### Core Principles
 
-TaskMaster Pro is built on the following core principles:
+synccraft-space is built on the following core principles:
 
 * **Usability:** A user-friendly interface that requires minimal training.
 * **Flexibility:** Customizable to fit the unique needs of different teams and projects.
@@ -39,7 +39,7 @@ The application is built with the following technologies:
 
 ## Key Features
 
-TaskMaster Pro offers a range of features to enhance your project management workflow:
+synccraft-space offers a range of features to enhance your project management workflow:
 
 * **User Authentication:** Secure registration and login functionality.
 * **Project Management:**
